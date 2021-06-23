@@ -65,11 +65,11 @@ namespace Trianairo
 
                 spa.Options.SourcePath = "ClientApp";
 
-                spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
 
                 if (env.IsDevelopment())
                 {
                     spa.UseAngularCliServer(npmScript: "start");
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                 }
             });
         }
