@@ -1,38 +1,20 @@
-<header>
-  <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
-  >
-    <div class="container">
-      <a class="navbar-brand testingclass" [routerLink]="['/']">Trianairo</a>
-      <div
-        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
-        [ngClass]="{ show: isExpanded }"
-      >
-        <ul class="navbar-nav flex-grow">
-          <li
-            class="nav-item"
-            [routerLinkActive]="['link-active']"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            <a class="nav-link text-dark testingclass" [routerLink]="['/']">Home</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']"
-              >Counter</a
-            >
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark testingclass--tiny" [routerLink]="['/fetch-data']"
-              >Fetch data</a
-            >
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark testingclass" [routerLink]="['/saints']"
-              >Saints</a
-            >
-          </li>
-        </ul>
-      </div>
+<header class="header">
+  <div class="nav-bar__item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }" >
+        <a class="testingclass" [routerLink]="['/']">Trianairo</a>
+  </div>
+
+    <div class="nav-bar">
+          <div class="nav-bar__item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }" >
+            <a class="testingclass" [routerLink]="['/']">Home</a>
+          </div>
+          <div class="nav-bar__item" [routerLinkActive]="['link-active']">
+            <a class="testingclass" [routerLink]="['/counter']">Counter</a>
+          </div>
+          <div class="nav-bar__item" [routerLinkActive]="['link-active']">
+            <a class="testingclass--tiny" [routerLink]="['/fetch-data']">Fetch data</a>
+          </div>
+          <div class="nav-bar__item" [routerLinkActive]="['link-active']">
+            <a class="testingclass" [routerLink]="['/saints']">Saints</a>
+          </div>
     </div>
-  </nav>
 </header>
