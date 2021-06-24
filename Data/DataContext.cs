@@ -6,6 +6,6 @@ namespace Trianairo.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base (options) {}
 
-        public DbSet<Saint> Values { get; set; }
+        public DbSet<Saint> Saints { get; set; }
     }
 }
