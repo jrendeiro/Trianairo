@@ -1,0 +1,18 @@
+.saints-container {
+    display: grid;
+    grid-template-columns: repeat(4,30rem);
+
+    &__card {
+        display: grid;
+        border: 5px solid red;
+        justify-content: center;
+        row-gap: .5rem;
+    }
+    
+    
+    &__picture {
+        min-width: 200px;
+        min-height: 200px;
+        box-shadow: 0 1.5rem 4rem rgba(black, .8);
+    }
+}
