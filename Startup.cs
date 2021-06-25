@@ -23,10 +23,12 @@ namespace Trianairo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddCors();
 
-            services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-
-
+            // services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<DataContext>(x => {x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                                                     x.EnableSensitiveDataLogging();
+            });
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -57,12 +59,19 @@ namespace Trianairo
             }
 
             app.UseRouting();
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                    name: "saints",
+                    pattern: "{controller=SaintsApi}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                    name: "admin",
+                    pattern: "{controller=Admin}/{action=Index}");
             });
 
             app.UseSpa(spa =>
@@ -71,7 +80,6 @@ namespace Trianairo
                 // see https://go.microsoft.com/fwlink/?linkid=864501
 
                 spa.Options.SourcePath = "ClientApp";
-
 
                 if (env.IsDevelopment())
                 {

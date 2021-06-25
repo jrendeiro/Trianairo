@@ -1,0 +1,15 @@
+<div class="formGroup">
+  <label for="name">Name: </label>
+  <input [formControl]="name" type="text" class="inputBox">
+
+  <label for="biography">Biography: </label>
+  <input [formControl]="biography" type="text" class="inputBox">
+
+  <label for="pictureUrl">PictureURL: </label>
+  <input [formControl]="pictureUrl" type="text" class="inputBox">
+
+  <label for="quote">Quote: </label>
+  <input [formControl]="quote" type="text" class="inputBox">
+
+  <button class="formButton" (click)="sendSaint()">Canonize</button>
+</div>

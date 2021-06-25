@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -10,16 +10,18 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { SaintsComponent } from './saints/saints.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    SaintsComponent
-  ],
+    SaintsComponent,
+    AdminComponent
+   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
@@ -28,8 +30,10 @@ import { SaintsComponent } from './saints/saints.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'saints', component: SaintsComponent }
-    ])
+      { path: 'saints', component: SaintsComponent },
+      { path: 'admin', component: AdminComponent }
+    ]),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

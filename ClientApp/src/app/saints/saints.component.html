@@ -1,7 +1,9 @@
 <div class="saints-container">
-    <div *ngFor(let saint of saints) class="saints-container__card">
+    <div *ngFor="let saint of saints" class="saints-container__card">
         <div class="saints-container__name">{{ saint.name }}</div>
-        <img class="saints-container__picture" src="{{ saint.picture }}" />
+        <div class="saints-container__picture">
+            <img class="saints-container__img" src="{{ saint.pictureUrl }}" alt="saint pic">
+        </div>
         <div class="saints-container__quote">Quote: {{ saint.quote }}</div>
         <div class="saints-container__biography">{{ saint.biography }}</div>
     </div>

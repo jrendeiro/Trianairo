@@ -1,18 +1,30 @@
 .saints-container {
     display: grid;
-    grid-template-columns: repeat(4,30rem);
-
+    grid-template-columns: repeat(5,25rem);
+    column-gap: 3rem;
+    row-gap: 4rem;
+    margin-top: 3rem;
+    
     &__card {
         display: grid;
         border: 5px solid red;
         justify-content: center;
         row-gap: .5rem;
+        padding: .5rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: 2rem 40rem 3rem 3rem;
     }
-    
-    
+        
     &__picture {
-        min-width: 200px;
-        min-height: 200px;
+        width: 94%;
         box-shadow: 0 1.5rem 4rem rgba(black, .8);
+        padding: .5rem;
+        justify-self: center;
+    }
+
+    &__img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
     }
 }

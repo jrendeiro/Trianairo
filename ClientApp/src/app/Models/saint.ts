@@ -1,6 +1,6 @@
 export class Saint {
     name: string;
-    picture: string;
+    pictureUrl: string;
     quote: string;
     biography: string;
 }
