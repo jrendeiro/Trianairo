@@ -14,7 +14,10 @@
           <div class="nav-bar__item" [routerLinkActive]="['link-active']">
             <a class="testingclass" [routerLink]="['/saints']">Saints</a>
           </div>
-          <div class="nav-bar__item" [routerLinkActive]="['link-active']">
+          <div *ngIf="loginDisplay" class="nav-bar__item" [routerLinkActive]="['link-active']">
             <a class="testingclass" [routerLink]="['/admin']">Admin</a>
+          </div>
+          <div class="nav-bar__item" [routerLinkActive]="['link-active']">
+            <a class="testingclass" [routerLink]="['/profile']">Profile</a>
           </div>
     </div>
