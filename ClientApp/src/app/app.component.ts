@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
 
   logout() { // Add log out function here
     this.authService.logoutRedirect({
-      postLogoutRedirectUri: 'http://localhost:4200'
+      postLogoutRedirectUri: 'http://trianairo.com'
     });
   }
 
