@@ -1,7 +1,5 @@
-using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
@@ -25,20 +23,6 @@ namespace Trianairo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            
-            // Configure the application to use the protocol and client ip address forwared by the frontend load balancer
-            services.Configure<ForwardedHeadersOptions>(options =>
-            {
-                options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
-            });
-            
-            // Configure the application to client certificate forwarded the frontend load balancer
-        
-            services.AddCertificateForwarding(options => { options.CertificateHeader = "X-ARR-ClientCert"; });
-
-            // Add certificate authentication so when authorization is performed the user will be created from the certificate
-            services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate();            
-            
             services.AddCors();
 
             // services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
@@ -67,12 +51,7 @@ namespace Trianairo
                 app.UseHsts();
             }
 
-            app.UseForwardedHeaders();
-            app.UseCertificateForwarding();
-
             app.UseHttpsRedirection();
-
-
             app.UseStaticFiles();
             if (!env.IsDevelopment())
             {
@@ -80,10 +59,6 @@ namespace Trianairo
             }
 
             app.UseRouting();
-            
-            app.UseAuthentication();
-            app.UseAuthorization();
-
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseEndpoints(endpoints =>
