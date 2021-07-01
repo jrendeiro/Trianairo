@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
   }
 
   login() {
+    console.log('tryin login');
     this.authService.loginRedirect();
   }
 
