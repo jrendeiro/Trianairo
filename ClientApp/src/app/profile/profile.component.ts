@@ -26,6 +26,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getProfile() {
+    console.log('trying getProfile');
     this.http.get(GRAPH_ENDPOINT)
       .subscribe(profile => {
         this.profile = profile;
