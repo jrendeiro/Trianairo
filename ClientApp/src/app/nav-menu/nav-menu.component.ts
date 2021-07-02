@@ -9,7 +9,7 @@ export class NavMenuComponent {
   isExpanded = false;
   loginDisplay = false;
 
-  constructor(private authService: MsalService) { }
+  constructor(public authService: MsalService) { }
 
   collapse() {
     this.isExpanded = false;

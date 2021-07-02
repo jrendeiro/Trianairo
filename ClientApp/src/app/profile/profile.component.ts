@@ -17,16 +17,13 @@ type ProfileType = {
 export class ProfileComponent implements OnInit {
   profile!: ProfileType;
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.getProfile();
   }
 
   getProfile() {
-    console.log('trying getProfile');
     this.http.get(GRAPH_ENDPOINT)
       .subscribe(profile => {
         this.profile = profile;
