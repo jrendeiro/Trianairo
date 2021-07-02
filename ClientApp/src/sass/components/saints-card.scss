@@ -1,14 +1,16 @@
 .saints-container {
     display: grid;
-    grid-template-columns: repeat(5,25rem);
+    grid-template-columns: repeat(5,1fr);
     column-gap: 3rem;
     row-gap: 4rem;
-    margin-top: 3rem;
+    margin: 3rem;
     
     &__card {
         display: grid;
-        border: 5px solid red;
+        // border: 5px solid red;
+        box-shadow: 0 1.5rem 4rem rgba(black, .8);
         justify-content: center;
+        background-color: khaki;
         row-gap: .5rem;
         padding: .5rem;
         grid-template-columns: 1fr;

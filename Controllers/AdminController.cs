@@ -29,18 +29,52 @@ namespace Trianairo.Controllers
             return _context.Saints.ToArray();
         }
 
+
         [HttpPost]
         public IActionResult Post(Saint saint)
         {
-            try{
-            _context.Add(saint);
-            _context.SaveChanges();
+            try
+            {
+                _context.Add(saint);
+                _context.SaveChanges();
             }
-            catch(Exception ex) {
+            catch (Exception ex)
+            {
                 error = ex.Message;
             }
             return Ok(error);
         }
+
+            //this works using the parameter in the url (alternative to what you have below with [FromBody])
+        // [HttpDelete("/admin/{saint}")]
+        // public IActionResult Delete(string saint)
+        // {
+        //     return Ok($"nice! your saint is {saint}");
+        // }
+
+        [HttpDelete]
+        public IActionResult Delete([FromBody] string saintName)
+        {
+            try
+            {
+                if (saintName != null) {
+                var deleteSaint = _context.Saints
+                                    .Where(s => s.name == saintName)
+                                    .FirstOrDefault();
+
+                _context.Saints.Remove(deleteSaint);
+
+                _context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+            }
+
+            return Ok(error);
+        }
+
 
     }
 }
