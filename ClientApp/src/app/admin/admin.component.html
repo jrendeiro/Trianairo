@@ -1,3 +1,4 @@
+<div class="inputBox">
 <div class="formGroup">
   <label for="name">Name: </label>
   <input [formControl]="name" type="text" class="inputBox">
@@ -12,4 +13,13 @@
   <input [formControl]="quote" type="text" class="inputBox">
 
   <button class="formButton" (click)="sendSaint()">Canonize</button>
+  <!-- <button class="formButton" (click)="deleteSaint()">Delete</button> -->
+</div>
+
+  <form #f="ngForm" (ngSubmit)="deleteSaint(f, first.value)" novalidate>
+    <input style="width: 13rem; font-size: 2.5rem;" ngModel required #first="ngModel">
+    <input style="width: 13rem; font-size: 2.5rem;" name="last" ngModel>
+    <span style="font-size: 2.5rem;">first name is {{ first.value }}</span>
+    <button>Submit</button>
+  </form>
 </div>

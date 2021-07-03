@@ -45,15 +45,9 @@ namespace Trianairo.Controllers
             return Ok(error);
         }
 
-            //this works using the parameter in the url (alternative to what you have below with [FromBody])
-        // [HttpDelete("/admin/{saint}")]
-        // public IActionResult Delete(string saint)
-        // {
-        //     return Ok($"nice! your saint is {saint}");
-        // }
-
-        [HttpDelete]
-        public IActionResult Delete([FromBody] string saintName)
+            // this works using the parameter in the url (alternative to what you have below with [FromBody])
+        [HttpDelete("/admin/{saintName}")]
+        public IActionResult Delete(string saintName)
         {
             try
             {
@@ -75,6 +69,28 @@ namespace Trianairo.Controllers
             return Ok(error);
         }
 
+        // [HttpDelete]
+        // public IActionResult Delete([FromBody] string saintName)
+        // {
+        //     try
+        //     {
+        //         if (saintName != null) {
+        //         var deleteSaint = _context.Saints
+        //                             .Where(s => s.name == saintName)
+        //                             .FirstOrDefault();
+
+        //         _context.Saints.Remove(deleteSaint);
+
+        //         _context.SaveChanges();
+        //         }
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         error = ex.Message;
+        //     }
+
+        //     return Ok(error);
+        // }
 
     }
 }

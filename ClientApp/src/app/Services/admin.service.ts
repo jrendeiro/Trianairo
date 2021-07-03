@@ -18,5 +18,9 @@ export class AdminService {
     const headers = { 'content-type': 'application/json'}
     return this.http.post(this.baseUrl + 'admin', body, {'headers':headers});
   }
-}
 
+  deleteSaint(saint: string) {
+    console.log('tryin delete saint: ' + saint);
+    return this.http.delete(this.baseUrl + 'admin/' + saint);
+  }
+}

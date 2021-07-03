@@ -46,8 +46,8 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
       auth: {
         clientId: '839885f7-9e65-4e44-894e-2d47a46318cc', // This is your client ID
         authority: 'https://login.microsoftonline.com/consumers', // This is your tenant ID
-        redirectUri: 'https://trianairo.com/'// This is your redirect URI
-        // redirectUri: 'http://localhost:4200/'// This is your redirect URI
+        // redirectUri: 'https://trianairo.com/'// This is your redirect URI
+        redirectUri: 'http://localhost:4200/'// This is your redirect URI
       },
       cache: {
         cacheLocation: 'localStorage',

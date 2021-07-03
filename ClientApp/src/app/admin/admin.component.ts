@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { Saint } from '../Models/saint';
 import { AdminService } from '../Services/admin.service';
 
@@ -8,9 +8,6 @@ import { AdminService } from '../Services/admin.service';
   templateUrl: './admin.component.html'
 })
 export class AdminComponent implements OnInit {
-
-
-
   
   name = new FormControl('');
   biography = new FormControl('');
@@ -21,7 +18,7 @@ export class AdminComponent implements OnInit {
   
   ngOnInit() {
   }
-
+  
   sendSaint() {
 
     let saint : Saint = {
@@ -31,10 +28,14 @@ export class AdminComponent implements OnInit {
       "quote" : this.quote.value
     }
 
-    this.adminService.sendSaint(saint).subscribe(next => {
-    }, error => {
+    this.adminService.sendSaint(saint).subscribe(next => {}, error => {
       console.error(error);
     });
   }
 
+  deleteSaint(f: NgForm, name: string) {
+      this.adminService.deleteSaint(name).subscribe(next => {}, error => {
+        console.error(error);
+      });
+    }
 }
