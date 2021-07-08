@@ -1,13 +1,20 @@
 .saints-container {
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(5, 1fr);
     column-gap: 3rem;
     row-gap: 4rem;
     margin: 3rem;
+
+    @include respond(tab-land) { // width < 900?
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include respond(tab-port) { // width < 900?
+        grid-template-columns: repeat(2, 1fr);
+    }
     
     &__card {
         display: grid;
-        // border: 5px solid red;
         box-shadow: 0 1.5rem 4rem rgba(black, .8);
         justify-content: center;
         background-color: khaki;
@@ -15,6 +22,8 @@
         padding: .5rem;
         grid-template-columns: 1fr;
         grid-template-rows: 2rem 40rem 3rem 3rem;
+        min-width: 25rem;
+        max-width: 50rem;
     }
         
     &__picture {
