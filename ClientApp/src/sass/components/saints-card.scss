@@ -17,6 +17,10 @@
         grid-template-columns: repeat(2, 1fr);
     }
     
+    @include respond(phone) { // width < 900?
+        grid-template-columns: 1fr;
+    }
+    
     &__card {
         display: grid;
         box-shadow: 0 1.5rem 4rem rgba(black, .8);
