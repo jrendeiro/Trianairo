@@ -15,6 +15,8 @@ import { MsalGuard, MsalInterceptor, MsalModule, MsalRedirectComponent } from '@
 import { InteractionType, PublicClientApplication } from '@azure/msal-browser';
 import { ProfileComponent } from './profile/profile.component';
 import { environment } from 'src/environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -63,7 +65,9 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
       protectedResourceMap: new Map([ 
           ['https://graph.microsoft.com/v1.0/me', ['user.read']]
       ])
-    })
+    }),
+    BrowserAnimationsModule,
+    MatSnackBarModule
   ],  providers: [
     {
       provide: HTTP_INTERCEPTORS,
