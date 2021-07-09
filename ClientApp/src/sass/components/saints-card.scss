@@ -4,6 +4,7 @@
     column-gap: 6rem;
     row-gap: 4rem;
     margin: 3rem;
+    justify-items: center;
     
     @include respond(tab-land) { // width < 900?
         grid-template-columns: repeat(3, 1fr);
@@ -24,7 +25,8 @@
     &__card {
         display: grid;
         box-shadow: 0 1.5rem 4rem rgba(black, .8);
-        justify-content: center;
+        justify-items: center;
+        justify-self: stretch;
         background-color: khaki;
         row-gap: .5rem;
         padding: .5rem;
