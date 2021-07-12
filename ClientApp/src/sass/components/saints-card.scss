@@ -1,26 +1,27 @@
 .saints-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    // grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 48rem));
     column-gap: 6rem;
     row-gap: 4rem;
     margin: 3rem;
     justify-items: center;
     
-    @include respond(tab-land) { // width < 900?
-        grid-template-columns: repeat(3, 1fr);
-    }
+    // @include respond(tab-land) { // width < 900?
+    //     grid-template-columns: repeat(3, 1fr);
+    // }
     
-    @include respond(big-desktop) { // width < 900?
-        grid-template-columns: repeat(5, 1fr);
-    }
+    // @include respond(big-desktop) { // width < 900?
+    //     grid-template-columns: repeat(5, 1fr);
+    // }
     
-    @include respond(tab-port) { // width < 900?
-        grid-template-columns: repeat(2, 1fr);
-    }
+    // @include respond(tab-port) { // width < 900?
+    //     grid-template-columns: repeat(2, 1fr);
+    // }
     
-    @include respond(phone) { // width < 900?
-        grid-template-columns: 1fr;
-    }
+    // @include respond(phone) { // width < 900?
+    //     grid-template-columns: 1fr;
+    // }
     
     &__card {
         display: grid;
@@ -34,6 +35,10 @@
         grid-template-rows: 2rem 40rem 3rem 3rem;
         min-width: 25rem;
         max-width: 50rem;
+        
+        &--blessed {
+            background-color: grey;
+        }
     }
         
     &__picture {
