@@ -1,5 +1,7 @@
 <div class="saints-container">
-    <div *ngFor="let saint of saints" class="saints-container__card">
+    <!-- <div *ngFor="let saint of saints" [ngClass]="{'saints-container__card':saint.status==='Saint'
+                                                ,'saints-container__card saints-container__card--blessed':saint.status==='Blessed'}"> -->
+    <div *ngFor="let saint of saints" [ngClass]="saint.status==='Saint' ? 'saints-container__card' : 'saints-container__card saints-container__card--blessed'">
         <div class="saints-container__name">{{ saint.name }}</div>
         <div class="saints-container__picture">
             <img class="saints-container__img" src="{{ saint.pictureUrl }}" alt="saint pic">

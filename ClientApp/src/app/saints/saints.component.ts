@@ -21,7 +21,7 @@ export class SaintsComponent implements OnInit {
     this.saintService.getSaints().subscribe( saint => {
       this.saints = saint;
     }, error => {
-      console.error('ERROR: ' + error);
+      console.error('ERROR: ' + error.message);
     });
   }
 }

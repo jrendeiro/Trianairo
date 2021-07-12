@@ -13,6 +13,7 @@ export class AdminComponent implements OnInit {
   biography = new FormControl("");
   pictureUrl = new FormControl("");
   quote = new FormControl("");
+  status = new FormControl("");
 
   durationInSeconds = 3;
 
@@ -29,6 +30,7 @@ export class AdminComponent implements OnInit {
       biography: this.biography.value,
       pictureUrl: this.pictureUrl.value,
       quote: this.quote.value,
+      status: this.status.value
     };
 
     this.adminService.sendSaint(saint).subscribe(

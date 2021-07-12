@@ -3,4 +3,5 @@ export class Saint {
     pictureUrl: string;
     quote: string;
     biography: string;
+    status: string;
 }

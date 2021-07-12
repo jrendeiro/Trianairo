@@ -7,4 +7,5 @@ public class Saint {
     public string pictureUrl { get; set; }
     public string quote { get; set; }
     public string biography { get; set; }
+    public string status { get; set; }
 }
