@@ -25,7 +25,7 @@ namespace Trianairo.Controllers
         [HttpGet]
         public IEnumerable<Saint> Get()
         {
-            return _context.Saints.ToArray();
+            return _context.Saints.OrderBy(s => s.name).ToArray();
         }
     }
 }
