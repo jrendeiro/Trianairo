@@ -1,12 +1,20 @@
+<div style="margin: 2rem">* Grey = Beatified</div>
+<div style="margin: 2rem">* Yellow = Saint</div>
+
 <div class="saints-container">
-    <!-- <div *ngFor="let saint of saints" [ngClass]="{'saints-container__card':saint.status==='Saint'
-                                                ,'saints-container__card saints-container__card--blessed':saint.status==='Blessed'}"> -->
-    <div *ngFor="let saint of saints" [ngClass]="saint.status==='Saint' ? 'saints-container__card' : 'saints-container__card saints-container__card--blessed'">
-        <div class="saints-container__name">{{ saint.name }}</div>
-        <div class="saints-container__picture">
-            <img class="saints-container__img" src="{{ saint.pictureUrl }}" alt="saint pic">
+  <div *ngFor="let saint of saints" class="saints-card">
+      <div class="saints-card__flip" [ngClass]="saint.status === 'Saint' ? 'saints-card__flip--front' : 'saints-card__flip--front--blessed'">
+        <div class="saints-card__picture">
+          <img class="saints-card__img" src="{{ saint.pictureUrl }}" alt="saint pic"/>
         </div>
-        <div class="saints-container__quote">Quote: {{ saint.quote }}</div>
-        <div class="saints-container__biography">{{ saint.biography }}</div>
+        <div class="saints-card__name">{{ saint.name }}</div>
+      </div>
+      <div class="saints-card__flip saints-card__flip--back">
+        <div class="text-block">
+          <div class="saints-card__text">{{ saint.biography }}</div>
+          <div class="spacer"></div>
+          <div class="saints-card__text">Quote: {{ saint.quote }}</div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
