@@ -1,62 +1,101 @@
 .saints-container {
-    display: grid;
-    // grid-template-columns: repeat(4, 1fr);
-    grid-template-columns: repeat(auto-fit, minmax(40rem, 48rem));
-    column-gap: 6rem;
-    row-gap: 4rem;
-    margin: 3rem;
-    justify-items: center;
-    
-    // @include respond(tab-land) { // width < 900?
-    //     grid-template-columns: repeat(3, 1fr);
-    // }
-    
-    // @include respond(big-desktop) { // width < 900?
-    //     grid-template-columns: repeat(5, 1fr);
-    // }
-    
-    // @include respond(tab-port) { // width < 900?
-    //     grid-template-columns: repeat(2, 1fr);
-    // }
-    
-    // @include respond(phone) { // width < 900?
-    //     grid-template-columns: 1fr;
-    // }
-    
-    &__card {
-        display: grid;
-        box-shadow: 0 1.5rem 4rem rgba(black, .8);
-        justify-items: center;
-        justify-self: stretch;
-        background-color: khaki;
-        row-gap: .5rem;
-        padding: .5rem;
-        grid-template-columns: 1fr;
-        grid-template-rows: 2rem 40rem 3rem 3rem;
-        min-width: 25rem;
-        max-width: 50rem;
-        
-        &--blessed {
-            background-color: grey;
-        }
-    }
-        
-    &__picture {
-        width: 94%;
-        box-shadow: 0 1.5rem 4rem rgba(black, .8);
-        padding: .5rem;
-        justify-self: center;
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  // grid-template-rows: repeat(auto-fit, minmax(40rem, 45rem));
+  column-gap: 6rem;
+  row-gap: 4rem;
+  margin: 3rem;
+  justify-items: center;
+}
 
-    &__img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
+.saints-card {
+  min-width: 25rem;
+  max-width: 50rem;
+  height: 50rem;
+  line-height: 1.85rem;
+  perspective: 150rem;
+  // display: grid;
+  position: relative;
+  align-self: stretch;
+  
+  &__flip {
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all 1s ease;
+    display: grid;
+    justify-items: center;
+    justify-self: stretch;
+    row-gap: 0.5rem;
+    // padding: 0.5rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80%;
+    height: 100%;
+    width: 100%;
+    
+    &--front {
+      background-color: rgb(237, 220, 151);
+      box-shadow: 0 1.5rem 4rem rgba(black, 0.8);
+      overflow: hidden;
+
+      &--blessed {
+        background-color: grey;
+      }
     }
+      
+    &--back {
+      background-color: rgb(232, 94, 73);
+      transform: rotateY(180deg);
+      overflow: hidden;
+      width: 100%;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      min-height: 100%;
+    }
+  }
+
+  &__picture {
+    width: 94%;
+    box-shadow: 0 1.5rem 4rem rgba(black, 0.8);
+    padding: 0.5rem;
+    justify-self: center;
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__name {
+    font-size: 3rem;
+    align-self: center;
+    line-height: 2.5rem;
+  }
+
+  &__text {
+    font-size: 2rem;
+  }
+
+  &:hover &__flip--front, &:hover &__flip--front--blessed  {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__flip--back {
+    transform: rotateY(0);
+  }
 }
 
 .inputBox {
-    width: 45rem;
-    height: 6rem;
-    font-size: 2rem;
+  width: 45rem;
+  height: 6rem;
+  font-size: 2rem;
+}
+
+.text-block {
+  padding: .5rem;
+}
+
+.spacer {
+  width: 100%;
+  height: 2.5rem;
 }
