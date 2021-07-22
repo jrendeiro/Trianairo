@@ -1,6 +1,6 @@
 .saints-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   // grid-template-rows: repeat(auto-fit, minmax(40rem, 45rem));
   column-gap: 6rem;
   row-gap: 4rem;
@@ -73,7 +73,8 @@
   }
 
   &__text {
-    font-size: 2rem;
+    font-size: 2.7rem;
+    line-height: 2.7rem;
   }
 
   &:hover &__flip--front, &:hover &__flip--front--blessed  {
@@ -92,7 +93,7 @@
 }
 
 .text-block {
-  padding: .5rem;
+    padding: .5rem;
 }
 
 .spacer {
