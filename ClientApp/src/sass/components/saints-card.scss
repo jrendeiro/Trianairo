@@ -26,11 +26,11 @@
     justify-items: center;
     justify-self: stretch;
     row-gap: 0.5rem;
-    // padding: 0.5rem;
     grid-template-columns: 1fr;
     grid-template-rows: 80%;
     height: 100%;
     width: 100%;
+    border-radius: .3rem;
     
     &--front {
       background-color: rgb(237, 220, 151);
