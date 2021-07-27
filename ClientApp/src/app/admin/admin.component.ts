@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, NgForm } from "@angular/forms";
 import { Saint } from "../Models/saint";
-import { AdminService } from "../Services/admin.service";
+import { SaintService } from "../Services/saint.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
@@ -17,23 +17,25 @@ export class AdminComponent implements OnInit {
 
   durationInSeconds = 3;
 
+  saint: Saint;
+  searchSaint = new FormControl("");
+
   constructor(
-    private adminService: AdminService,
+    private saintService: SaintService,
     private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {}
 
-  sendSaint() {
-    let saint: Saint = {
-      name: this.name.value,
-      biography: this.biography.value,
-      pictureUrl: this.pictureUrl.value,
-      quote: this.quote.value,
-      status: this.status.value
-    };
+  getSaint() {
+    this.saintService.getSaint<Saint>(this.searchSaint.value).subscribe(saint => 
+      this.saint = saint
+    )
+  }
 
-    this.adminService.sendSaint(saint).subscribe(
+  sendSaint() {
+
+    this.saintService.sendSaint(this.saint).subscribe(
       () => {
         this._snackBar.open("Saint Added", null, {
           duration: this.durationInSeconds * 1000,
@@ -49,8 +51,15 @@ export class AdminComponent implements OnInit {
     );
   }
 
+  updateSaint() {
+    this.saintService.updateSaint(this.saint).subscribe (
+      () => {},
+      (error) => console.log(error)
+    )
+  }
+
   deleteSaint(f: NgForm, name: string) {
-    this.adminService.deleteSaint(name).subscribe(
+    this.saintService.deleteSaint(name).subscribe(
       () => {
         this._snackBar.open("Saint Deleted", null, {
           duration: this.durationInSeconds * 1000,

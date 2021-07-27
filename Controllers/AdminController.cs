@@ -29,6 +29,23 @@ namespace Trianairo.Controllers
             return _context.Saints.ToArray();
         }
 
+        [HttpPut("/admin/{saintName}")]
+        public IActionResult Put(Saint saint)
+        {
+            // var deleteSaint = _context.Saints.FirstOrDefault(s => s.name == saint.name);
+
+            // _context.Saints.Remove(deleteSaint);
+
+            // _context.Saints.Add(saint);
+
+            // _context.SaveChanges();
+
+            _context.Entry(saint).State = EntityState.Modified;
+            _context.SaveChanges();
+
+            return Ok();
+
+        }
 
         [HttpPost]
         public IActionResult Post(Saint saint)

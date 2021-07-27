@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Saint } from '../Models/saint';
-import { SaintService } from '../Services/saint.service'; 
+import { SaintService } from '../Services/saint.service';
 
 @Component({
   selector: 'app-saints',
@@ -10,6 +10,9 @@ import { SaintService } from '../Services/saint.service';
 export class SaintsComponent implements OnInit {
 
   saints: Saint[];
+
+  favoriteSeason: string;
+  seasons: string[] = ['Born', 'Died', 'Beatified/Canonized'];
 
   constructor(private saintService: SaintService) { }
 

@@ -12,14 +12,14 @@
             <a class="testingclass--tiny" [routerLink]="['/fetch-data']">Fetch data</a>
           </div> -->
           <div class="nav-bar__item" [routerLinkActive]="['link-active']">
-            <a class="testingclass" [routerLink]="['/saints']">Saints</a>
+            <a [routerLink]="['/saints']">Saints</a>
           </div>
 
           <div *ngIf="this.authService.instance.getAllAccounts().length > 0" class="nav-bar__item" [routerLinkActive]="['link-active']">
-            <a class="testingclass" [routerLink]="['/admin']">Admin</a>
+            <a [routerLink]="['/admin']">Admin</a>
           </div>
 
           <div *ngIf="this.authService.instance.getAllAccounts().length > 0" class="nav-bar__item" [routerLinkActive]="['link-active']">
-            <a class="testingclass" [routerLink]="['/profile']">Profile</a>
+            <a [routerLink]="['/profile']">Profile</a>
           </div>
     </div>

@@ -14,7 +14,6 @@ export class AdminService {
 
   sendSaint(saint: Saint): Observable<any> {
     const body=JSON.stringify(saint);
-    console.log('saint looks like this: ' + body);
     const headers = { 'content-type': 'application/json'}
     return this.http.post(this.baseUrl + 'admin', body, {'headers':headers});
   }

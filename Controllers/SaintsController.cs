@@ -21,11 +21,17 @@ namespace Trianairo.Controllers
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
-
-        [HttpGet]
         public IEnumerable<Saint> Get()
         {
             return _context.Saints.OrderBy(s => s.name).ToArray();
         }
+        [HttpGet("/saintsapi/{saintName}")]
+
+        public Saint Get(string saintName)
+        {
+            return _context.Saints
+                    .FirstOrDefault(s => s.name == saintName);
+        }
+        
     }
 }

@@ -17,6 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { environment } from 'src/environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatRadioModule} from '@angular/material/radio';
 
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
@@ -67,7 +68,8 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
       ])
     }),
     BrowserAnimationsModule,
-    MatSnackBarModule
+    MatRadioModule,
+    MatSnackBarModule,
   ],  providers: [
     {
       provide: HTTP_INTERCEPTORS,

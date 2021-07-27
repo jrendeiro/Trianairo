@@ -1,14 +1,21 @@
 .formGroup {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     margin-top: 3rem;
+    grid-template-columns: repeat(3, 35rem);
+    gap: 2rem;
+}
+
+.inputGroup {
+    justify-self: end;
 }
 
 .inputBox {
     margin: 1.5rem;
-    max-width: 20vw;
+    width: 20rem;
 }
 
 .formButton {
-    max-width: 10vw;
+    width: 10rem;
+    align-self: center;
+    justify-self: center;
 }
