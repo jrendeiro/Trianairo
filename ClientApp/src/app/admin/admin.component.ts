@@ -17,7 +17,6 @@ export class AdminComponent implements OnInit {
 
   durationInSeconds = 3;
 
-
   saint: Saint;
   searchSaint = new FormControl("");
 
