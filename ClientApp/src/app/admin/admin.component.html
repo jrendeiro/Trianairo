@@ -33,6 +33,12 @@
       <input [(ngModel)]="saint.beatifiedDate" type="text" class="inputBox">
     </div>
     
+    <mat-radio-group class="martyr-radio-group" [(ngModel)]="saint.martyr">
+      <div class="example-radio-button">Martyr?</div>
+      <mat-radio-button class="example-radio-button" [value]="true">Yes</mat-radio-button>
+      <mat-radio-button class="example-radio-button" [value]="false">No</mat-radio-button>
+    </mat-radio-group>
+    
     <div class="inputGroup">
       <label for="quote">Canonized: </label>
       <input [(ngModel)]="saint.canonizedDate" type="text" class="inputBox">
@@ -58,16 +64,18 @@
       <input [(ngModel)]="saint.feastDay" type="text" class="inputBox">
     </div>
     
-    <button class="formButton" (click)="updateSaint()">Update Saint</button>
+    <button class="formButton--updateSaint" (click)="updateSaint()">Update Saint</button>
   </div>
   
+  
   <div *ngIf="!saint" class="formGroup">
-
-    <div class="inputGroup">
+    
+    <div class="canonizeInput">
       <label for="name">Name: </label>
       <input [formControl]="name" type="text" class="inputBox">
+      <button class="formButton" (click)="sendSaint()">Canonize</button>
     </div>
-    
+<!--     
     <div class="inputGroup">
       <label for="biography">Biography: </label>
       <input [formControl]="biography" type="text" class="inputBox">
@@ -116,13 +124,12 @@
     <div class="inputGroup">
       <label for="quote">Feast Day: </label>
       <input [formControl]="status" type="text" class="inputBox">
-    </div>
+    </div> -->
 
-    <button class="formButton" (click)="sendSaint()">Canonize</button>
   </div>
   
   
-<form #f="ngForm" (ngSubmit)="deleteSaint(f, first.value)" novalidate>
+<form *ngIf="!saint" class="inputGroup" #f="ngForm" (ngSubmit)="deleteSaint(f, first.value)" novalidate>
   <input style="width: 13rem; font-size: 2.5rem;" ngModel required #first="ngModel">
   <input style="width: 13rem; font-size: 2.5rem;" name="last" ngModel>
   <button>Submit</button>

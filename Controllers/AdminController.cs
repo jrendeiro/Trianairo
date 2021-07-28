@@ -41,6 +41,11 @@ namespace Trianairo.Controllers
             // _context.SaveChanges();
 
             _context.Entry(saint).State = EntityState.Modified;
+
+            // if (saint.martyr == true)
+            // {
+            //     saint.martyr = true
+            // }
             _context.SaveChanges();
 
             return Ok();

@@ -5,10 +5,10 @@ export class Saint {
     biography: string;
     country: string;
     status: string;
-    marty: boolean;
-    beatifiedDate: number;
-    canonizedDate: number;
+    martyr: boolean;
+    beatifiedYear: number;
+    canonizedYear: number;
     birthDate: Date;
-    deathDate: number;
-    feastDay: Date;
+    deathYear: number;
+    feastDay: string;
 }

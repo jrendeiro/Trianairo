@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Trianairo.Data;
 
 namespace Trianairo.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210727210637_temporary_remove_saints_props")]
+    partial class temporary_remove_saints_props
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,29 +27,11 @@ namespace Trianairo.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("beatifiedYear")
-                        .HasColumnType("int");
-
                     b.Property<string>("biography")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("birthDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("canonizedYear")
-                        .HasColumnType("int");
-
                     b.Property<string>("country")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("deathYear")
-                        .HasColumnType("int");
-
-                    b.Property<string>("feastDay")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("martyr")
-                        .HasColumnType("bit");
 
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");

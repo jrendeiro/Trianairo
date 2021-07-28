@@ -12,7 +12,7 @@ export class SaintsComponent implements OnInit {
   saints: Saint[];
 
   favoriteSeason: string;
-  seasons: string[] = ['Born', 'Died', 'Beatified/Canonized'];
+  orderBy: string[] = ['Born', 'Died', 'Beatified/Canonized'];
 
   constructor(private saintService: SaintService) { }
 

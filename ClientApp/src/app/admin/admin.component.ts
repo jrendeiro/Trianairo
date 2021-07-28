@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { FormControl, NgForm } from "@angular/forms";
 import { Saint } from "../Models/saint";
 import { SaintService } from "../Services/saint.service";
@@ -8,14 +8,15 @@ import { MatSnackBar } from "@angular/material/snack-bar";
   selector: "app-admin",
   templateUrl: "./admin.component.html",
 })
+
+
 export class AdminComponent implements OnInit {
+  @Input('aria-label')
+  ariaLabel: string = 'testLabel';
   name = new FormControl("");
-  biography = new FormControl("");
-  pictureUrl = new FormControl("");
-  quote = new FormControl("");
-  status = new FormControl("");
 
   durationInSeconds = 3;
+
 
   saint: Saint;
   searchSaint = new FormControl("");
@@ -41,9 +42,9 @@ export class AdminComponent implements OnInit {
           duration: this.durationInSeconds * 1000,
         });
         this.name.reset();
-        this.biography.reset();
-        this.pictureUrl.reset();
-        this.quote.reset();
+        // this.biography.reset();
+        // this.pictureUrl.reset();
+        // this.quote.reset();
       },
       (error) => {
         console.error(error);
@@ -52,6 +53,14 @@ export class AdminComponent implements OnInit {
   }
 
   updateSaint() {
+    // if (this.martyr = 'Yes') {
+    // this.saint.martyr = true;
+    // }
+    
+    // if (this.martyr = 'No') {
+    //     this.saint.martyr = false;
+    // }
+        console.log('saint.martyr is: ' + this.saint.martyr);
     this.saintService.updateSaint(this.saint).subscribe (
       () => {},
       (error) => console.log(error)

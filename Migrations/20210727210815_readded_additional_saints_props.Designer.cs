@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Trianairo.Data;
 
 namespace Trianairo.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210727210815_readded_additional_saints_props")]
+    partial class readded_additional_saints_props
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,8 +45,8 @@ namespace Trianairo.Migrations
                     b.Property<int?>("deathYear")
                         .HasColumnType("int");
 
-                    b.Property<string>("feastDay")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("feastDay")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("martyr")
                         .HasColumnType("bit");
