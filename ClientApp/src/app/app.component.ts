@@ -4,6 +4,8 @@ import { filter, takeUntil } from 'rxjs/operators';
 import { InteractionStatus } from '@azure/msal-browser';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ProfileService } from './Services/profile.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +16,10 @@ export class AppComponent implements OnInit {
   isIframe = false;
   loginDisplay = false;
   private readonly _destroying$ = new Subject<void>();
+  durationInSeconds = 3;
 
-  constructor(private broadcastService: MsalBroadcastService, private authService: MsalService) { }
+  constructor(private broadcastService: MsalBroadcastService, private authService: MsalService
+        , private profileService: ProfileService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.isIframe = window !== window.parent && !window.opener;
@@ -41,7 +45,16 @@ export class AppComponent implements OnInit {
   }
 
   setLoginDisplay() {
-    this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
+    let accounts = this.authService.instance.getAllAccounts();
+    this.loginDisplay = this.profileService.setLogin(accounts);
+
+    if (accounts.length > 0 && !this.loginDisplay) {
+      this._snackBar.open("Not authorized", null, {
+      duration: this.durationInSeconds * 1000,
+      });
+
+      setTimeout(()=>{ this.logout() }, this.durationInSeconds * 1000);
+    }
   }
 
   ngOnDestroy(): void {

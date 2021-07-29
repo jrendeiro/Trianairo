@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
+import { AppComponent } from '../app.component';
+import { ProfileService } from '../Services/profile.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -7,9 +9,8 @@ import { MsalService } from '@azure/msal-angular';
 })
 export class NavMenuComponent {
   isExpanded = false;
-  loginDisplay = false;
 
-  constructor(public authService: MsalService) { }
+  constructor(public profileService: ProfileService) { }
 
   collapse() {
     this.isExpanded = false;
@@ -19,7 +20,4 @@ export class NavMenuComponent {
     this.isExpanded = !this.isExpanded;
   }
 
-  setLoginDisplay() {
-    this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
-  }
 }

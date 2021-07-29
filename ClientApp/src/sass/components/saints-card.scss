@@ -1,6 +1,6 @@
 .saints-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
   column-gap: 6rem;
   row-gap: 4rem;
   margin: 3rem;
@@ -10,10 +10,9 @@
 .saints-card {
   min-width: 25rem;
   max-width: 50rem;
-  height: 50rem;
+  height: 40rem;
   line-height: 1.85rem;
   perspective: 150rem;
-  // display: grid;
   position: relative;
   align-self: stretch;
   
@@ -58,15 +57,15 @@
     padding: 0.5rem;
     justify-self: center;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
   }
 
   &__img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    grid-area: 1/1/span 3/span 4;
+    grid-area: 1/1/span 6/span 5;
   }
 
   &__name {
@@ -118,5 +117,5 @@
 
 .martyr__img {
   width: inherit;
-  grid-area: 1/3/span 1/span 1;
+  grid-area: 1/5/span1/span2;
 }
