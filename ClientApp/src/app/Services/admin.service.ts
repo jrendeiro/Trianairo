@@ -12,14 +12,13 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }
 
-  sendSaint(saint: Saint): Observable<any> {
-    const body=JSON.stringify(saint);
+  sendSaint(name: string): Observable<any> {
+    const body=name;
     const headers = { 'content-type': 'application/json'}
     return this.http.post(this.baseUrl + 'admin', body, {'headers':headers});
   }
 
   deleteSaint(saint: string) {
-    console.log('tryin delete saint: ' + saint);
     return this.http.delete(this.baseUrl + 'admin/' + saint);
   }
 }

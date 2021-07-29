@@ -32,20 +32,8 @@ namespace Trianairo.Controllers
         [HttpPut("/admin/{saintName}")]
         public IActionResult Put(Saint saint)
         {
-            // var deleteSaint = _context.Saints.FirstOrDefault(s => s.name == saint.name);
-
-            // _context.Saints.Remove(deleteSaint);
-
-            // _context.Saints.Add(saint);
-
-            // _context.SaveChanges();
-
             _context.Entry(saint).State = EntityState.Modified;
 
-            // if (saint.martyr == true)
-            // {
-            //     saint.martyr = true
-            // }
             _context.SaveChanges();
 
             return Ok();
@@ -53,11 +41,11 @@ namespace Trianairo.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Saint saint)
+        public IActionResult Post([FromBody] string name)
         {
             try
             {
-                _context.Add(saint);
+                _context.Add(new Saint {name = name});
                 _context.SaveChanges();
             }
             catch (Exception ex)

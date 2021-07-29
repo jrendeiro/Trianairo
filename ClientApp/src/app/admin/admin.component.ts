@@ -35,7 +35,7 @@ export class AdminComponent implements OnInit {
 
   sendSaint() {
 
-    this.saintService.sendSaint(this.saint).subscribe(
+    this.saintService.sendSaint(this.name.value).subscribe(
       () => {
         this._snackBar.open("Saint Added", null, {
           duration: this.durationInSeconds * 1000,
