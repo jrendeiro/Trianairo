@@ -1,15 +1,15 @@
 .saints-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-  column-gap: 6rem;
+  column-gap: 1.5rem;
   row-gap: 4rem;
   margin: 3rem;
-  justify-items: center;
+  justify-items: stretch;
 }
 
 .saints-card {
-  min-width: 25rem;
-  max-width: 50rem;
+  // min-width: 25rem;
+  // max-width: 50rem;
   height: 40rem;
   line-height: 1.85rem;
   perspective: 150rem;
@@ -105,6 +105,10 @@
 
 .example-radio-group {
   display: grid;
+}
+
+.mat-radio-group {
+  grid-template-columns: 25rem;
 }
 
 .example-radio-button {

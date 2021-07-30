@@ -27,10 +27,12 @@ namespace Trianairo.Controllers
         }
         [HttpGet("/saintsapi/{saintName}")]
 
-        public Saint Get(string saintName)
+        public IActionResult Get(string saintName)
         {
-            return _context.Saints
+            var saint = _context.Saints
                     .FirstOrDefault(s => s.name == saintName);
+            
+            return Ok(saint);
         }
         
     }
