@@ -11,7 +11,6 @@ export class SaintsComponent implements OnInit {
 
   saints: Saint[];
 
-  favoriteSeason: string;
   orderBy: string[] = ['Born', 'Died', 'Beatified/Canonized'];
 
   constructor(private saintService: SaintService) { }

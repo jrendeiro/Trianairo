@@ -12,7 +12,6 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 
 export class AdminComponent implements OnInit {
   @Input('aria-label')
-  ariaLabel: string = 'testLabel';
   name = new FormControl("");
 
   durationInSeconds = 3;
