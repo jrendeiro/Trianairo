@@ -7,7 +7,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
 import { SaintsComponent } from './saints/saints.component';
 import { AdminComponent } from './admin/admin.component';
 import { MsalGuard, MsalInterceptor, MsalModule, MsalRedirectComponent } from '@azure/msal-angular';
@@ -26,7 +25,6 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
     SaintsComponent,
     AdminComponent,
     ProfileComponent
@@ -37,7 +35,6 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
       { path: 'saints', component: SaintsComponent },
       { path: 'admin', component: AdminComponent },
       { path: 'profile', component: ProfileComponent }

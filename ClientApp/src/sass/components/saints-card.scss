@@ -1,6 +1,6 @@
 .saints-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
   column-gap: 1.5rem;
   row-gap: 4rem;
   margin: 3rem;
@@ -8,14 +8,31 @@
 }
 
 .saints-card {
-  // min-width: 25rem;
-  // max-width: 50rem;
-  height: 40rem;
+  height: 35vw;
   line-height: 1.85rem;
   perspective: 150rem;
   position: relative;
   align-self: stretch;
-  
+
+  @include respond(tab-land) {
+    // width < 1200?
+    height: 30vw; //1 rem = 8px, 9/16 = 56.25%
+  }
+
+  @include respond(tab-port) {
+    // width < 900?
+    height: 37vw; //1 rem = 7.2px, 8/16 = 50%
+  }
+
+  @include respond(phone) {
+    // width < 1200?
+    height: 120vw; //1 rem = 6.4px, 7/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    height: 35vw; //1rem = 12, 12/16
+  }
+
   &__flip {
     position: absolute;
     backface-visibility: hidden;
@@ -28,8 +45,8 @@
     grid-template-rows: 80%;
     height: 100%;
     width: 100%;
-    border-radius: .3rem;
-    
+    border-radius: 0.3rem;
+
     &--front {
       background-color: rgb(237, 220, 151);
       box-shadow: 0 1.5rem 4rem rgba(black, 0.8);
@@ -39,7 +56,7 @@
         background-color: grey;
       }
     }
-      
+
     &--back {
       background-color: #69f0ae;
       transform: rotateY(180deg);
@@ -65,7 +82,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-    grid-area: 1/1/span 6/span 5;
+    grid-area: 1/1 / span 6 / span 5;
   }
 
   &__name {
@@ -79,7 +96,8 @@
     line-height: 2.7rem;
   }
 
-  &:hover &__flip--front, &:hover &__flip--front--blessed  {
+  &:hover &__flip--front,
+  &:hover &__flip--front--blessed {
     transform: rotateY(-180deg);
   }
 
@@ -95,7 +113,7 @@
 }
 
 .text-block {
-    padding: .5rem;
+  padding: 0.5rem;
 }
 
 .spacer {
@@ -121,5 +139,5 @@
 
 .martyr__img {
   width: inherit;
-  grid-area: 1/5/span1/span2;
+  grid-area: 1/5 / span1/span2;
 }
