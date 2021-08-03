@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Saint } from '../Models/saint';
+import { Order } from '../Enums/Order';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ constructor(private http: HttpClient) { }
 
    getSaints(): Observable<Saint[]> {
      let params = new HttpParams();
-     return this.http.get<Saint[]>(this.baseUrl + 'saintsApi');
+     let order = Order.Descending;
+     return this.http.get<Saint[]>(this.baseUrl + 'saintsApi/' + "latestEvent/" + order);
     }
 
    sendSaint(saint: Saint): Observable<any> {
