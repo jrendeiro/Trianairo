@@ -26,6 +26,8 @@ namespace Trianairo
             
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
 
+            services.AddAutoMapper(typeof(Startup));
+
             // services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<DataContext>(x => {x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
                                                      x.EnableSensitiveDataLogging();

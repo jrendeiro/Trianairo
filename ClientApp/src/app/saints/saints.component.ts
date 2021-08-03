@@ -11,7 +11,8 @@ export class SaintsComponent implements OnInit {
 
   saints: Saint[];
 
-  orderBy: string[] = ['Born', 'Died', 'Beatified/Canonized'];
+  labels: string[] = ['Born', 'Died', 'Beatified/Canonized'];
+  orderby: string;
 
   constructor(private saintService: SaintService) { }
 
@@ -20,10 +21,14 @@ export class SaintsComponent implements OnInit {
   }
 
   loadSaints() {
-    this.saintService.getSaints().subscribe( saint => {
+    this.saintService.getSaints().subscribe(saint => {
       this.saints = saint;
     }, error => {
       console.error('ERROR: ' + error.message);
     });
   }
+
+  // requestOrderedBy() {
+  //   this.saintService.getSaints(this.orderby).subscribe()
+  // }
 }

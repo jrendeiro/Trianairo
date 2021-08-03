@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Trianairo.Data;
+using System.Linq.Dynamic.Core;
+using AutoMapper;
 
 namespace Trianairo.Controllers
 {
@@ -18,15 +20,17 @@ namespace Trianairo.Controllers
     {
         private readonly ILogger<SaintsApiController> _logger;
         private readonly DataContext _context;
+        private readonly IMapper _mapper;
         private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
         private Cloudinary _cloudinary;
 
         public SaintsApiController(ILogger<SaintsApiController> logger, DataContext context,
-            IOptions<CloudinarySettings> cloudinaryConfig)
+            IOptions<CloudinarySettings> cloudinaryConfig, IMapper mapper)
         {
             _cloudinaryConfig = cloudinaryConfig;
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            _mapper = mapper;
 
             Account acc = new Account(
                 _cloudinaryConfig.Value.CloudName,
@@ -36,22 +40,26 @@ namespace Trianairo.Controllers
 
             _cloudinary = new Cloudinary(acc);
         }
-        public IEnumerable<Saint> Get()
-        {
-            var saints = _context.Saints.OrderBy(s => s.name).ToArray();
 
+        [HttpGet("/saintsapi/{field}/{orderby}")]
+        public IEnumerable<SaintDto> GetSaints(string field, string orderby)
+        {
+
+            // SYNTAX: OrderBy("Make ASC, Year DESC")
+            var saints = _context.Saints.AsQueryable().OrderBy($"{field} {orderby}").ToArray();
 
             foreach (Saint s in saints)
             {
                 s.pictureUrl = _cloudinary.Api.UrlImgUp.Transform(new Transformation().Width(150).Height(200).Crop("fill")).BuildUrl("Trianairo/" + s.pictureUrl);
             }
-            return saints;
-
-
+            
+            var saintsToReturn = _mapper.Map<IEnumerable<SaintDto>>(saints);
+            
+            return saintsToReturn;
         }
         [HttpGet("/saintsapi/{saintName}")]
 
-        public IActionResult Get(string saintName)
+        public IActionResult GetSaint(string saintName)
         {
             var saint = _context.Saints
                     .FirstOrDefault(s => s.name == saintName);

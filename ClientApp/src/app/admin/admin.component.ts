@@ -51,13 +51,6 @@ export class AdminComponent implements OnInit {
   }
 
   updateSaint() {
-    // if (this.martyr = 'Yes') {
-    // this.saint.martyr = true;
-    // }
-    
-    // if (this.martyr = 'No') {
-    //     this.saint.martyr = false;
-    // }
         console.log('saint.martyr is: ' + this.saint.martyr);
     this.saintService.updateSaint(this.saint).subscribe (
       () => {},
