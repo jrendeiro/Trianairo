@@ -40,9 +40,6 @@ export class AdminComponent implements OnInit {
           duration: this.durationInSeconds * 1000,
         });
         this.name.reset();
-        // this.biography.reset();
-        // this.pictureUrl.reset();
-        // this.quote.reset();
       },
       (error) => {
         console.error(error);
@@ -51,7 +48,7 @@ export class AdminComponent implements OnInit {
   }
 
   updateSaint() {
-        console.log('saint.martyr is: ' + this.saint.martyr);
+    this.checkSpaces();
     this.saintService.updateSaint(this.saint).subscribe (
       () => {},
       (error) => console.log(error)
@@ -73,5 +70,12 @@ export class AdminComponent implements OnInit {
       });
       
       f.reset()
+  }
+
+  checkSpaces() {
+    for (let key in this.saint) {
+      if (this.saint[key] == '')
+        this.saint[key] = null;
+    }
   }
 }
