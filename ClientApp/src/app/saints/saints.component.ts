@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatRadioGroup, MatRadioChange, MatRadioButton } from '@angular/material/radio';
+import { Order } from '../Enums/Order';
 import { Saint } from '../Models/saint';
 import { SaintService } from '../Services/saint.service';
 
@@ -11,17 +13,19 @@ export class SaintsComponent implements OnInit {
 
   saints: Saint[];
 
-  labels: string[] = ['Born', 'Died', 'Beatified/Canonized'];
+  labels: string[] = ['Name', 'birthDate', 'deathYear', 'LatestEvent'];
   orderby: string;
+
 
   constructor(private saintService: SaintService) { }
 
   ngOnInit(): void {
-    this.loadSaints();
+    this.orderby = this.labels[3];
+    this.loadSaints(this.orderby, Order.Descending);
   }
 
-  loadSaints() {
-    this.saintService.getSaints().subscribe(saint => {
+  loadSaints(property: string, order: Order) {
+    this.saintService.getSaints(property, order.toString()).subscribe(saint => {
       this.saints = saint;
     }, error => {
       console.error('ERROR: ' + error.message);

@@ -17,10 +17,10 @@ constructor(private http: HttpClient) { }
      return this.http.get<Saint>(this.baseUrl + 'saintsApi/' + name);
     }
 
-   getSaints(): Observable<Saint[]> {
+   getSaints(property: string, order: string): Observable<Saint[]> {
      let params = new HttpParams();
-     let order = Order.Descending;
-     return this.http.get<Saint[]>(this.baseUrl + 'saintsApi/' + "latestEvent/" + order);
+    //  let order = Order.Descending;
+     return this.http.get<Saint[]>(this.baseUrl + 'saintsApi/' + property + '/' + order);
     }
 
    sendSaint(saint: Saint): Observable<any> {
