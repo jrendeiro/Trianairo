@@ -10,7 +10,7 @@ namespace Trianairo.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Saint>().Ignore(s => s.latestEvent);
+            builder.Entity<Saint>().Ignore(s => s.LatestEvent);
             base.OnModelCreating(builder);
         }
     }
