@@ -1,4 +1,4 @@
-<input [formControl]="searchSaint" type="text" class="inputBox">
+<input [formControl]="searchSaint" (keyup.enter)="getSaint()" type="text" class="inputBox">
 <button (click)="getSaint()">Get Saint</button>
 
 <div class="inputBox">
