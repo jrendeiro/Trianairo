@@ -11,7 +11,8 @@ public class Saint
     public string country { get; set; }
     public string status { get; set; }
     public int? beatifiedYear { get; set; }
-    public int? latestEvent
+    private int? latestEvent;
+    public int? LatestEvent
     {
         get
         {
