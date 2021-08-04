@@ -13,7 +13,7 @@ export class SaintsComponent implements OnInit {
 
   saints: Saint[];
 
-  labels: string[] = ['Name', 'birthDate', 'deathYear', 'LatestEvent'];
+  labels: string[] = ['Name', 'birthDate', 'deathYear', 'latestEvent'];
   orderby: string;
 
 
