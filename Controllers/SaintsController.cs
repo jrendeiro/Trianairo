@@ -73,7 +73,7 @@ namespace Trianairo.Controllers
         public IActionResult GetSaint(string saintName)
         {
             var saint = _context.Saints
-                    .FirstOrDefault(s => s.name == saintName);
+                    .FirstOrDefault(s => s.name.Contains(saintName));
 
             return Ok(saint);
         }
