@@ -74,9 +74,7 @@
       <input [formControl]="name" type="text" class="inputBox">
       <button class="formButton" (click)="sendSaint()">Canonize</button>
     </div>
-
   </div>
-  
   
 <form *ngIf="!saint" class="inputGroup" #f="ngForm" (ngSubmit)="deleteSaint(f, first.value)" novalidate>
   <input style="width: 13rem; font-size: 2.5rem;" ngModel required #first="ngModel">
