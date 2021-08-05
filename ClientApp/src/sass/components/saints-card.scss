@@ -1,26 +1,28 @@
-.saints-container:before {
-  content: "";
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  display: block;
-  filter: blur(8rem);
-  box-shadow: 0 0 8px 8px white inset;
-  background-image: linear-gradient(to right, #80AAFF, #B3CCFF);
-  width: 100%;
-  height: 100%;
-}
+// .saints-container:before {
+  //   content: "";
+  //   position: fixed;
+  //   left: 0;
+  //   right: 0;
+  //   z-index: -1;
+//   display: block;
+//   filter: blur(8rem);
+//   box-shadow: 0 0 8px 8px white inset;
+//   width: 100%;
+//   height: 100%;
+// }
 
 .saints-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  box-shadow: inset 0 0 13rem -39px #80aaff;
+  border-radius: 28rem;
   column-gap: 6.5rem;
   row-gap: 5rem;
   z-index: 0;
   margin: 3rem 11rem 3rem 11rem;
   padding: 3rem;
   justify-items: stretch;
+  // clip-path: polygon(10% 25%, 35% 25%, 35% 0%, 65% 0%, 65% 25%, 90% 25%, 90% 50%, 65% 50%, 65% 100%, 35% 100%, 35% 50%, 10% 50%);
 }
 
 .saints-card {
@@ -153,3 +155,4 @@
 .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
     background-color:rgba(255, 37, 37,.26);
 }
+
