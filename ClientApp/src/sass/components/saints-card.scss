@@ -26,7 +26,6 @@
 }
 
 .saints-card {
-  height: 35vw;
   line-height: 1.85rem;
   perspective: 150rem;
   position: relative;
@@ -156,3 +155,22 @@
     background-color:rgba(255, 37, 37,.26);
 }
 
+.out-pop {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(250, 250, 244, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  // transform: translate(-50%, -50%);
+}
+
+.in-pop {
+  height: 50%;
+  width: 50%;
+  background-color: orangered;
+  align-self: center;
+  justify-self: center;
+
+}
