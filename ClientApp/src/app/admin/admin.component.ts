@@ -27,9 +27,8 @@ export class AdminComponent implements OnInit {
   ngOnInit() {}
 
   getSaint() {
-    this.saintService.getSaint<Saint>(this.searchSaint.value).subscribe(saint => 
-      this.saint = saint
-    )
+    
+    this.saintService.getSaint<Saint>(this.searchSaint.value).subscribe(saint => this.saint = saint);
   }
 
   sendSaint() {
@@ -74,8 +73,9 @@ export class AdminComponent implements OnInit {
 
   checkSpaces() {
     for (let key in this.saint) {
-      if (this.saint[key] == '')
-        this.saint[key] = null;
+      if (this.saint[key] === '') {
+        this.saint[key]= null;
+      }
     }
   }
 }
