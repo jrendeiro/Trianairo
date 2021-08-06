@@ -15,6 +15,9 @@ export class SaintsComponent implements OnInit {
 
   labels: string[] = ['Name', 'birthDate', 'deathYear', 'latestEvent'];
   orderby: string;
+  selSaint: Saint;
+
+  popTrue: boolean = false;
 
 
   constructor(private saintService: SaintService) { }
@@ -30,6 +33,18 @@ export class SaintsComponent implements OnInit {
     }, error => {
       console.error('ERROR: ' + error.message);
     });
+  }
+
+  openTheBox(setTo: boolean, name: string) {
+    this.popTrue = setTo;
+    console.log('name is: ' + name);
+    this.selSaint = this.saints.find(s => s.name === name);
+    console.log('Saint name is: ' + this.selSaint.name);
+    console.log('Saint pictureUrl is: ' + this.selSaint.pictureUrl);
+    }
+
+  closeTheBox(setTo: boolean) {
+    this.popTrue = setTo;
   }
 
   // requestOrderedBy() {

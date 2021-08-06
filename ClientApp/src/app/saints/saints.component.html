@@ -9,7 +9,7 @@
 </mat-radio-group>
 
 <div class="saints-container">
-  <div *ngFor="let saint of saints" class="saints-card">
+  <div *ngFor="let saint of saints" (click)="openTheBox(true, saint.name)" class="saints-card">
       <div class="saints-card__flip" [ngClass]="saint.status === 'Saint' ? 'saints-card__flip--front' : 'saints-card__flip--front--blessed'">
         <div class="saints-card__picture">
           <img class="saints-card__img" src="{{ saint.pictureUrl }}" alt="saint pic"/>
@@ -28,7 +28,11 @@
     </div>
   </div>
 
-  <div class="out-pop">
-    <div class="in-pop"></div>
+  <div *ngIf="popTrue" (click)="closeTheBox(false)" class="out-pop"></div>
+  <div *ngIf="popTrue && selSaint" class="in-pop">
+      <div>Name : {{ selSaint.name }}</div>
+      <div>Born: {{ selSaint.birthDate | date }}</div>
+      <div>Died: {{ selSaint.deathYear }}</div>
+      <div>Country: {{ selSaint.country }}</div>
   </div>
 

@@ -31,6 +31,7 @@
   position: relative;
   align-self: stretch;
   height: 40rem;
+  cursor: pointer;
 
   &__flip {
     position: absolute;
@@ -162,7 +163,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  display: grid;
+  filter: blur(.15rem);
   // transform: translate(-50%, -50%);
 }
 
@@ -170,7 +171,9 @@
   height: 50%;
   width: 50%;
   background-color: orangered;
-  align-self: center;
-  justify-self: center;
-
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  font-size: 3rem;
+  padding: 2rem;
 }
