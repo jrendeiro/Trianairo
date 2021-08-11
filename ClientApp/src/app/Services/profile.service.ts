@@ -16,7 +16,7 @@ type ProfileType = {
 })
 export class ProfileService {
   profile!: ProfileType;
-  loginDisplay: boolean;
+  loginDisplay: boolean = false;
 
 
 
@@ -30,7 +30,7 @@ export class ProfileService {
   }
 
   setLogin(accounts: AccountInfo[]) {
-    this.loginDisplay = accounts[0].localAccountId == '00000000-0000-0000-45bd-f35bb27e96d7';
+    // this.loginDisplay = accounts[0].localAccountId == '00000000-0000-0000-45bd-f35bb27e96d7';
     return this.loginDisplay;
   }
 }
