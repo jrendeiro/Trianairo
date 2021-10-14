@@ -1,5 +1,5 @@
 <div>
-    <p>Logged in as <strong> {{profile?.givenName}} {{profile?.surname}} </strong></p>
-    <p><strong>Email: </strong> {{profile?.userPrincipalName}}</p>
-    <p><strong>Your Id is: </strong> {{profile?.id}}</p>
+    <p>Logged in as <strong> {{this.profileService.profile?.givenName}} {{profile?.surname}} </strong></p>
+    <p><strong>Email: </strong> {{this.profileService.profile?.userPrincipalName}}</p>
+    <p><strong>Your Id is: </strong> {{this.profileService.profile?.id}}</p>
 </div>

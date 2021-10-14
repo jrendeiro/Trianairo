@@ -31,8 +31,7 @@
   position: relative;
   align-self: stretch;
   height: 40rem;
-  cursor: pointer;
-
+  
   &__flip {
     position: absolute;
     backface-visibility: hidden;
@@ -46,17 +45,17 @@
     height: 100%;
     width: 100%;
     border-radius: 0.3rem;
-
+    
     &--front {
       background-color: rgb(237, 220, 151);
       box-shadow: 0 1.5rem 4rem rgba(black, 0.8);
       overflow: hidden;
-
+      
       &--blessed {
         background-color: grey;
       }
     }
-
+    
     &--back {
       background-color: #69f0ae;
       transform: rotateY(180deg);
@@ -67,7 +66,7 @@
       min-height: 100%;
     }
   }
-
+  
   &__picture {
     width: 94%;
     box-shadow: 0 1.5rem 4rem rgba(black, 0.8);
@@ -114,6 +113,7 @@
 
 .text-block {
   padding: 0.5rem;
+  cursor: pointer;
 }
 
 .spacer {

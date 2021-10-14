@@ -37,7 +37,8 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'saints', component: SaintsComponent },
       { path: 'admin', component: AdminComponent },
-      { path: 'profile', component: ProfileComponent }
+      { path: 'profile', component: ProfileComponent },
+      { path: 'redirect',   redirectTo: '/saints', pathMatch: 'full' }
     ]),
     ReactiveFormsModule,
     MsalModule.forRoot( new PublicClientApplication({

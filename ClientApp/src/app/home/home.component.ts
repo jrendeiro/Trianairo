@@ -8,7 +8,7 @@ import { filter } from 'rxjs/operators';
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
-  loginDisplay = false;
+  // loginDisplay = false;
 
   constructor(private authService: MsalService, private msalBroadcastService: MsalBroadcastService) { }
 
@@ -26,11 +26,11 @@ export class HomeComponent implements OnInit {
         filter((status: InteractionStatus) => status === InteractionStatus.None)
       )
       .subscribe(() => {
-        this.setLoginDisplay();
+        // this.setLoginDisplay();
       })
   }
 
   setLoginDisplay() {
-    this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
+    // this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
   }
 }

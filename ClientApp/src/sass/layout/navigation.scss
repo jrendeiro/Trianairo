@@ -1,7 +1,7 @@
 .nav-bar {
     display: grid;
     justify-content: right;
-    grid-template-columns: 1fr repeat(4, 15rem);
+    grid-template-columns: 1fr repeat(5, 17rem);
     column-gap: 1rem;
 
     @include respond(phone) {
@@ -17,7 +17,7 @@
 
         &--title {
             grid-column-start: 1;
-            grid-column-end: 3;
+            grid-column-end: 1;
             font-size: 5.5rem;
         }
     }

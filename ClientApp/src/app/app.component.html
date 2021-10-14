@@ -1,8 +1,8 @@
 <body>
   <app-nav-menu></app-nav-menu>
   
-  <button *ngIf="!loginDisplay" (click)="login()">Login</button>
-  <button mat-raised-button *ngIf="loginDisplay" (click)="logout()">Logout</button>
+  <button *ngIf="!this.loginDisplay" (click)="login()">Login</button>
+  <button mat-raised-button *ngIf="this.loginDisplay" (click)="logout()">Logout</button>
 
   <div class="container">
     <router-outlet *ngIf="!isIframe"></router-outlet>

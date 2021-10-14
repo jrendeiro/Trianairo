@@ -2,26 +2,19 @@
          <div class="nav-bar__item nav-bar__item--title" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }" >
             <a class="testingclass" [routerLink]="['/']">Trianairo</a>
          </div>
-          <!-- <div class="nav-bar__item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }" >
-            <a class="testingclass" [routerLink]="['/']">Home</a>
-          </div> -->
-          <!-- <div class="nav-bar__item" [routerLinkActive]="['link-active']">
-            <a class="testingclass" [routerLink]="['/counter']">Counter</a>
-          </div>
-          <div class="nav-bar__item" [routerLinkActive]="['link-active']">
-            <a class="testingclass--tiny" [routerLink]="['/fetch-data']">Fetch data</a>
-          </div> -->
 
           <div class="nav-bar__item" [routerLinkActive]="['link-active']">
             <a [routerLink]="['/saints']">Saints</a>
           </div>
 
-          <div *ngIf="this.profileService.loginDisplay" class="nav-bar__item" [routerLinkActive]="['link-active']">
+          <div *ngIf="this.loginService.isAdmin" class="nav-bar__item" [routerLinkActive]="['link-active']">
             <a [routerLink]="['/admin']">Admin</a>
           </div>
 
           <div *ngIf="this.profileService.loginDisplay" class="nav-bar__item" [routerLinkActive]="['link-active']">
             <a [routerLink]="['/profile']">Profile</a>
           </div>
+
+          <div *ngIf="this.profileService.loginDisplay" class="nav-bar__item">Logged in as {{ this.profileService.displayName }}</div>
 
     </div>

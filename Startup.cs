@@ -75,6 +75,9 @@ namespace Trianairo
                 endpoints.MapControllerRoute(
                     name: "admin",
                     pattern: "{controller=Admin}/{action=Index}");
+                endpoints.MapControllerRoute(
+                    name: "login",
+                    pattern: "{controller=Login}/{action=Index}");
             });
 
             app.UseSpa(spa =>

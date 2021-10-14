@@ -8,8 +8,8 @@
   </mat-radio-button>
 </mat-radio-group>
 
-<div class="saints-container">
-  <div *ngFor="let saint of saints" (click)="openTheBox(true, saint.name)" class="saints-card">
+<div *ngIf="saints" class="saints-container">
+  <div *ngFor="let saint of saints" class="saints-card">
       <div class="saints-card__flip" [ngClass]="saint.status === 'Saint' ? 'saints-card__flip--front' : 'saints-card__flip--front--blessed'">
         <div class="saints-card__picture">
           <img class="saints-card__img" src="{{ saint.pictureUrl }}" alt="saint pic"/>
@@ -18,7 +18,7 @@
         <div class="saints-card__name">{{ saint.name }}</div>
       </div>
       <div class="saints-card__flip saints-card__flip--back">
-        <div class="text-block">
+        <div class="text-block" (click)="openTheBox(true, saint.name)">
           <div class="saints-card__text">{{ saint.biography }}</div>
           <div class="spacer"></div>
           <div *ngIf="saint.quote" class="saints-card__text">Quote: {{ saint.quote }}</div>

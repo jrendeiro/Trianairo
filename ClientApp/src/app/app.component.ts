@@ -6,6 +6,8 @@ import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ProfileService } from './Services/profile.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LoginService } from './Services/login.service';
+
 
 @Component({
   selector: 'app-root',
@@ -17,9 +19,11 @@ export class AppComponent implements OnInit {
   loginDisplay = false;
   private readonly _destroying$ = new Subject<void>();
   durationInSeconds = 3;
+  displayName: string;
+  id: string;
 
   constructor(private broadcastService: MsalBroadcastService, private authService: MsalService
-        , private profileService: ProfileService, private _snackBar: MatSnackBar) { }
+        , private profileService: ProfileService, private _snackBar: MatSnackBar, private loginService: LoginService) { }
 
   ngOnInit() {
     this.isIframe = window !== window.parent && !window.opener;
@@ -31,34 +35,51 @@ export class AppComponent implements OnInit {
     )
     .subscribe(() => {
       this.setLoginDisplay();
+
+      if (this.loginDisplay)
+        this.getProfile();
+
     })
   }
 
   login() {
-    this.authService.loginRedirect();
+    this.getProfile();
   }
-
+  
   logout() { // Add log out function here
     this.authService.logoutRedirect({
       postLogoutRedirectUri: environment.redirectUrl
     });
   }
-
+  
   setLoginDisplay() {
     let accounts = this.authService.instance.getAllAccounts();
-    this.loginDisplay = this.profileService.setLogin(accounts);
-
-    if (accounts.length > 0 && !this.loginDisplay) {
-      this._snackBar.open("Not authorized", null, {
-      duration: this.durationInSeconds * 1000,
-      });
-
-      setTimeout(()=>{ this.logout() }, this.durationInSeconds * 1000);
-    }
-  }
-
-  ngOnDestroy(): void {
-    this._destroying$.next(undefined);
-    this._destroying$.complete();
+    this.loginDisplay = accounts.length > 0;
+    
+    // if (accounts.length > 0 && !this.loginDisplay) {
+      //   this._snackBar.open("Not authorized", null, {
+        //   duration: this.durationInSeconds * 1000,
+        //   });
+        
+        //   setTimeout(()=>{ this.logout() }, this.durationInSeconds * 1000);
+        //}
+      }
+      
+      getProfile() {
+        
+        this.profileService.getProfile().subscribe(
+          profile => {
+            this.displayName = profile.displayName;
+            this.profileService.displayName = profile.displayName;
+            this.profileService.loginDisplay = true;
+            this.id = profile.id;
+            this.loginService.login(this.id);
+          }
+          );
+      }
+      
+      ngOnDestroy(): void {
+        this._destroying$.next(undefined);
+        this._destroying$.complete();
   }
 }
